@@ -1,5 +1,6 @@
 import axios from "axios";
 import { serialize } from "cookie";
+import { toast } from "react-hot-toast";
 
 export default async function loginHandler(req, res) {
   if (req.method === "POST") {
@@ -23,13 +24,16 @@ export default async function loginHandler(req, res) {
       });
       res.setHeader("Set-Cookie", serialized);
       res.status(200).json(response.data);
+      toast.success("Bienvenido");
     } catch (error) {
       console.log(error);
       res
         .status(500)
         .json({ message: "Error al enviar datos a la api externa" });
+      toast.error("Datos incorrectos");
     }
   } else {
     res.status(401).json({ message: "Metodo HTTP no permitido" });
+    toast.error("Metodo HTTP no permitido");
   }
 }

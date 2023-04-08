@@ -1,11 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
+import { Toaster, toast } from "react-hot-toast";
 
 function Login() {
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
+
+  const router = useRouter();
 
   const handleChange = (e) => {
     setCredentials({
@@ -16,9 +20,14 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(credentials);
-    const response = await axios.post("/api/auth/login", credentials);
-    console.log(response);
+
+    try {
+      console.log(credentials);
+      const response = await axios.post("/api/auth/login", credentials);
+      router.push("/dashboard");
+    } catch (error) {
+      toast.error("¡Credenciales incorrectas!\n intente nuevamente");
+    }
   };
 
   return (
@@ -66,6 +75,7 @@ function Login() {
             </button>
           </div>
         </form>
+        <Toaster position="top-center" reverseOrder={false} />
       </div>
     </div>
   );

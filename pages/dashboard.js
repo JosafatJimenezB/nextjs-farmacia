@@ -13,10 +13,21 @@ function Dashboard() {
     }
   };
 
+  const getData = async () => {
+    try {
+      const response = await axios.get("/api/products/products");
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <h1>Dashboard</h1>
       <button onClick={() => logout()}>Salir</button>
+      <br></br>
+      <button onClick={() => getData()}>Obtener datos</button>
     </div>
   );
 }

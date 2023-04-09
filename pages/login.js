@@ -22,7 +22,6 @@ function Login() {
     e.preventDefault();
 
     try {
-      console.log(credentials);
       const response = await axios.post("/api/auth/login", credentials);
       router.push("/dashboard");
     } catch (error) {

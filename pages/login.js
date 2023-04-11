@@ -19,13 +19,13 @@ function Login() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
     try {
+      e.preventDefault();
       const response = await axios.post("/api/auth/login", credentials);
       router.push("/dashboard");
-    } catch (error) {
-      toast.error("¡Credenciales incorrectas!\n intente nuevamente");
+      toast.success("Bienvenido");
+    } catch (err) {
+      toast.error("¡Credenciales incorrectas! \n Intente nuevamente");
     }
   };
 

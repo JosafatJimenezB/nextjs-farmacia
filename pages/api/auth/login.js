@@ -24,7 +24,7 @@ export default async function loginHandler(req, res) {
       res.setHeader("Set-Cookie", serialized);
       res.status(200).json(response.data);
     } catch (error) {
-      res.status(500).json(error);
+      res.status(401).json(error);
     }
   } else {
     res.status(401).json({ message: "Metodo HTTP no permitido" });

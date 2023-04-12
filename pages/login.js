@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Toaster, toast } from "react-hot-toast";
+import Image from "next/image";
 
 function Login() {
   const [credentials, setCredentials] = useState({
@@ -30,15 +31,29 @@ function Login() {
   };
 
   return (
-    <div className="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8">
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+    <div className="h-screen mx-auto flex flex-col md:flex-row">
+      <div className="hidden sm:block bg-[url('/assets/login.jpeg')] bg-center bg-cover  w-full h-72 md:w-1/2 md:h-screen md:flex md:justify-center md:items-center">
+        <h2 className="backdrop-blur-xl text-2xl text-fuchsia-50 py-4 px-3 sm:mt-11">
+          ¿Quieres renunciar? Pues entonces es el momento de insistir más
+        </h2>
+      </div>
+      <div className="w-full h-72 relative md:w-1/2 sm:h-screen md:flex md:justify-center md:items-center">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full h-auto mx-auto mt-10 px-2 py-10 max-w-sm rounded-md md:w-1/2"
+        >
+          <h2 className="text-5xl text-center font-bold mb-3 text-teal-500 md:text-start">
+            Login
+          </h2>
+          <p className="text-lg mb-9 text-center text-teal-500 sm:text-start">
+            Incie Sesión para continuar
+          </p>
           <div>
             <input
               name="email"
               type="email"
               placeholder="email"
-              className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus: z-1 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="w-full mb-8 px-2 py-2 border-2 border-teal-200 rounded-md outline-teal-500"
               onChange={handleChange}
             ></input>
           </div>
@@ -46,7 +61,7 @@ function Login() {
             <input
               name="password"
               type="password"
-              className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="w-full mb-8 px-2 py-2 border-2 border-teal-200 rounded-md outline-teal-500"
               placeholder="password"
               onChange={handleChange}
             ></input>
@@ -54,27 +69,16 @@ function Login() {
           <div>
             <button
               type="submit"
-              className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="bg-gradient-to-r from-teal-300 to-teal-500 w-32 py-1 rounded-sm border-0 cursor-pointer"
             >
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <svg
-                  className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
               Login
             </button>
           </div>
         </form>
         <Toaster position="top-center" reverseOrder={false} />
+        <p className="md:absolute md:bottom-4 text-sm text-center text-teal-500">
+          Desarrollado por Sistemas Inc.
+        </p>
       </div>
     </div>
   );

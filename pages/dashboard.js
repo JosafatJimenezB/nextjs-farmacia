@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Toaster, toast } from "react-hot-toast";
+import Products from "./components/Products/Products";
 
-function Dashboard() {
+function Dashboard(products) {
   const router = useRouter();
 
   const logout = async () => {
@@ -15,22 +16,14 @@ function Dashboard() {
     }
   };
 
-  const getData = async () => {
-    try {
-      const response = await axios.get("/api/products/products");
-      console.log(response.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <div>
       <h1>Dashboard</h1>
       <button onClick={() => logout()}>Salir</button>
       <Toaster />
-      <br></br>
-      <button onClick={() => getData()}>Obtener datos</button>
+      <div>
+        <Products />
+      </div>
     </div>
   );
 }

@@ -33,7 +33,7 @@ function Login() {
   return (
     <div className="h-screen mx-auto flex flex-col md:flex-row">
       <div className="hidden sm:block bg-[url('/assets/login.jpeg')] bg-center bg-cover  w-full h-72 md:w-1/2 md:h-screen md:flex md:justify-center md:items-center">
-        <h2 className="backdrop-blur-xl text-2xl text-fuchsia-50 py-4 px-3 sm:mt-11">
+        <h2 className="backdrop-blur-md text-2xl text-fuchsia-50 py-4 px-3 sm:mt-11">
           ¿Quieres renunciar? Pues entonces es el momento de insistir más
         </h2>
       </div>
@@ -69,7 +69,7 @@ function Login() {
           <div>
             <button
               type="submit"
-              className="bg-gradient-to-r from-teal-300 to-teal-500 w-32 py-1 rounded-sm border-0 cursor-pointer"
+              className="bg-gradient-to-r from-teal-500 to-teal-300 w-32 py-1 rounded-sm border-0 cursor-pointer text-white"
             >
               Login
             </button>

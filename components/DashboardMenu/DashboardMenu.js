@@ -28,7 +28,7 @@ const Menu = () => {
       <nav
         className={`fixed  lg:static w-[80%] lg:w-full top-0 col-span-1 z-50
           ${mobile ? "-left-0" : "left-full"}
-        w-full h-full px-3 py-5 bg-slate-200 flex-col border-r`}
+        w-full h-full px-3 py-5 bg-slate-200 flex-col border-r duration-300`}
       >
         <h1 className="text-2xl my-10 text-teal-500 font-bold flex items-center justify-center">
           <RiBugLine className="mr-2" />
@@ -84,7 +84,7 @@ const Menu = () => {
       </div>
 
       <button
-        className="absolute top-1 right-1 text-xl bg-teal-500 p-2 text-white rounded-2xl lg:hidden"
+        className="absolute top-1 right-1 text-xl bg-teal-500 p-2 text-white rounded-2xl lg:hidden duration-300"
         onClick={handleMobile}
       >
         {mobile ? <RiCloseLine /> : <RiMenu2Fill />}

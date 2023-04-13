@@ -5,20 +5,31 @@ import {
   RiShoppingBag3Line,
   RiParentLine,
   RiUserLine,
+  RiMenu2Fill,
+  RiCloseLine,
 } from "react-icons/ri";
 import Logout from "../Logout/Logout";
 import Products from "../Products/Products";
 
 const Menu = () => {
   const [currentSection, setCurrentSection] = useState("productos");
+  const [mobile, setMobile] = useState(true);
 
   const handleMenuClick = (section) => {
     setCurrentSection(section);
   };
 
+  const handleMobile = () => {
+    setMobile(!mobile);
+  };
+
   return (
-    <div className="min-h-screen grid grid-cols-6">
-      <nav className="col-span-1 px-3 py-5 bg-slate-200">
+    <div className="min-h-screen grid grid-col-1 lg:grid-cols-6 absolute">
+      <nav
+        className={`fixed  lg:static w-[80%] lg:w-full top-0 col-span-1 z-50
+          ${mobile ? "-left-0" : "left-full"}
+        w-full h-full px-3 py-5 bg-slate-200 flex-col border-r`}
+      >
         <h1 className="text-2xl my-10 text-teal-500 font-bold flex items-center justify-center">
           <RiBugLine className="mr-2" />
           Sistemas Inc
@@ -67,10 +78,17 @@ const Menu = () => {
       </nav>
       <div className="w-ful p-5 col-span-5">
         {currentSection === "productos" && <Products />}
-        {currentSection === "ventas" && <p>Ventas</p>}
-        {currentSection === "clientes" && <h1>Clientes</h1>}
-        {currentSection === "empleados" && <h1>Empleados</h1>}
+        {currentSection === "ventas" && <Products />}
+        {currentSection === "clientes" && <Products />}
+        {currentSection === "empleados" && <Products />}
       </div>
+
+      <button
+        className="absolute top-1 right-1 text-xl bg-teal-500 p-2 text-white rounded-2xl lg:hidden"
+        onClick={handleMobile}
+      >
+        {mobile ? <RiCloseLine /> : <RiMenu2Fill />}
+      </button>
     </div>
   );
 };

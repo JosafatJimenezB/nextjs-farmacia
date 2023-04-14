@@ -10,6 +10,9 @@ import {
 } from "react-icons/ri";
 import Logout from "../Logout/Logout";
 import Products from "../Products/Products";
+import Clients from "../ClientsComponent/Clients";
+import Employees from "../EmployeesComponent/Employees";
+import Sales from "../SalesComponent/Sales";
 
 const Menu = () => {
   const [currentSection, setCurrentSection] = useState("productos");
@@ -24,7 +27,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="min-h-screen grid grid-col-1 lg:grid-cols-6 absolute">
+    <div className="min-h-screen w-full grid grid-col-1 lg:grid-cols-6 absolute">
       <nav
         className={`fixed  lg:static w-[80%] lg:w-full top-0 col-span-1 z-50
           ${mobile ? "-left-0" : "left-full"}
@@ -78,9 +81,9 @@ const Menu = () => {
       </nav>
       <div className="w-ful p-5 col-span-5">
         {currentSection === "productos" && <Products />}
-        {currentSection === "ventas" && <Products />}
-        {currentSection === "clientes" && <Products />}
-        {currentSection === "empleados" && <Products />}
+        {currentSection === "ventas" && <Sales />}
+        {currentSection === "clientes" && <Clients />}
+        {currentSection === "empleados" && <Employees />}
       </div>
 
       <button

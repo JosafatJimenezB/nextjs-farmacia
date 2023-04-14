@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductSkeleton from "../Skeleton/Skeleton";
+import Notfound from "../Skeleton/Notfound";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const Products = () => {
@@ -23,7 +24,7 @@ const Products = () => {
 
   return (
     <div>
-      <h2 className="mb-10 text-2xl text-center text-teal-500">Productos</h2>
+      <h2 className="mb-10 text-2xl text-start text-teal-500">Productos</h2>
       <table className="text-center min-w-full mx-auto border-2 border-teal-700">
         <tr className="border-2 border-teal-700">
           <th>Id</th>
@@ -54,6 +55,7 @@ const Products = () => {
           )}
         </tbody>
       </table>
+      {products.length === 0 && !loading && <Notfound />}
     </div>
   );
 };

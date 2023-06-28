@@ -5,7 +5,7 @@ import { Toaster, toast } from "react-hot-toast";
 
 function Login() {
   const [credentials, setCredentials] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -49,9 +49,9 @@ function Login() {
           </p>
           <div>
             <input
-              name="email"
-              type="email"
-              placeholder="email"
+              name="username"
+              type="text"
+              placeholder="username"
               className="w-full mb-8 px-2 py-2 border-2 border-teal-200 rounded-md outline-teal-500"
               onChange={handleChange}
             ></input>

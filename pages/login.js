@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Toaster, toast } from "react-hot-toast";
@@ -64,6 +65,17 @@ function Login() {
               placeholder="password"
               onChange={handleChange}
             ></input>
+          </div>
+          <div className="mb-5">
+            <p className="text-teal-500">
+              ¿Aun no tiene cuenta?
+              <Link
+                href="/register"
+                className="text-teal-700 hover:text-teal-400 transition ml-2"
+              >
+                Registrar
+              </Link>
+            </p>
           </div>
           <div>
             <button

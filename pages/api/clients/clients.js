@@ -11,7 +11,7 @@ export default async function productsHandler(req, res) {
         "Content-Type": "applicaton/json",
       },
     });
-    const products = await instance.get("/clients");
+    const products = await instance.get("/api/client");
 
     res.status(200).json(products.data);
   } catch (error) {

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import NewProduct from "./NewProduct";
 import ProductSkeleton from "../Skeleton/Skeleton";
 import Notfound from "../Skeleton/Notfound";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -59,7 +58,6 @@ const Products = () => {
         </table>
         {products.length === 0 && !loading && <Notfound />}
       </div>
-      <NewProduct />
     </>
   );
 };

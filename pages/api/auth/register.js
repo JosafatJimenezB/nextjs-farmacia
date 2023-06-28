@@ -1,13 +1,13 @@
 import axios from "axios";
 import { serialize } from "cookie";
 
-export default async function loginHandler(req, res) {
+export default async function registerHandler(req, res) {
   if (req.method === "POST") {
-    const { username, password } = req.body;
-    const data = { username, password };
+    const { username, email, password } = req.body;
+    const data = { username, email, password };
     try {
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_API_URL + "/api/auth/login",
+        process.env.NEXT_PUBLIC_API_URL + "/api/auth/register",
         data
       );
 

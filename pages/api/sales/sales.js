@@ -5,7 +5,7 @@ export default async function productsHandler(req, res) {
 
   try {
     const instance = axios.create({
-      baseURL: "https://farmacia-api-production.up.railway.app",
+      baseURL: process.env.NEXT_PUBLIC_API_URL,
       headers: {
         Authorization: `Bearer ${UserToken}`,
         "Content-Type": "applicaton/json",
